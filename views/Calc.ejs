@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Login</title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+<div class="row">
+    <div class ="col-sm-12" style="background-color:lavender;">
+    <input type = text id="num" value="" style="height:40px;width:180px;">
+    </div>
+</div>
+           <div class="row">
+             	<div class="col-lg-6" style="background-color:lavender;">
+              	<button type="button" onClick="add()" class="btn btn-primary btn-lg" style="height:80px;width:80px;">+</button>
+                </div>
+              	 	  <div class="col-lg-6" style="background-color:lavender;">
+              			<button type="button" onClick="sub()" class="btn btn-danger btn-lg" style="height:80px;width:80px;">-</button>
+              	      </div>  
+              			                   
+           </div>
+                  
+    				<div class="row">
+    						 <div class="col-lg-6" style="background-color:lavender;">
+              				 <button type="button" onClick="mul()" class="btn btn-warning btn-lg" style="height:80px;width:80px;">X</button>
+                    </div>  
+                    <div class="col-lg-6" style="background-color:lavender;">
+              				 <button type="button" onClick="div()" class="btn btn-info btn-lg" style="height:80px;width:80px;">/</button>
+                    </div>  
+       </div>
+       </div> 
+                        <div class="row">
+             	<div class="col-sm-12" style="background-color:lavender;">
+              	<button type="button" id="enter" class="btn btn-success btn-lg" style="width:195px;">ENTER</button>
+                </div>
+           </div>
+    <p id="demo">This hello</p>
+    
+    // JavaScript functions to perform various operations
+    
+    			<script type="text/javascript">
+    			// jquery executed when enter button is pressed
+   
+    			$(document).ready(function() {
+    
+    			$("#enter").click(function() {
+    
+                    // get the data from the input field and pass it with name value pair of val
+        			$.get("/calcu",{val:document.getElementById("num").value},function(data){
+        
+        			document.getElementById("demo").innerHTML=data;
+        			document.getElementById("num").value=data;
+        
+        
+        });
+        
+        });
+        });
+
+               // JavaScript function to Add numbers
+   				 function add()
+    				{
+    					var input = document.getElementById("num").value;
+   
+     				    document.getElementById("num").value = input + "+";
+      					document.getElementById("demo").innerHTML="Addition";
+    
+    				}
+                       // JavaScript function to Subtract Numbers
+     				function sub()
+    					{
+    						var input = document.getElementById("num").value;
+   
+      						document.getElementById("num").value = input + "-";
+      						document.getElementById("demo").innerHTML="Subtract";
+    
+    					}
+    					  // javascript function to Multiply numbers
+    					  	function mul()
+    						{
+    							var input = document.getElementById("num").value;
+   
+      							document.getElementById("num").value = input + "*";
+      							document.getElementById("demo").innerHTML="Multiply";
+    
+    						}
+    						
+    						   // javascript function to Divide numbers
+    						     function div()
+    								{
+    									var input = document.getElementById("num").value;
+   
+      									document.getElementById("num").value = input + "/";
+      									document.getElementById("demo").innerHTML="Divide";
+    
+    								}
+   
+   
+    					
+    					
+   
+    </script>
+
+</body>
